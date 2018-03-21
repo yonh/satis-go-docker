@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  satis-go:
+    build: ./
+    container_name: satis-go
+#    ports:
+#        - "8080:80"
+    image: yonh/satis-go
+    restart: always
+#    volumes:
+#      - ./satis-go:/opt/satis-go
+    environment:
+      VIRTUAL_HOST: ex.iyonh.com
+
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./htpasswd:/etc/nginx/htpasswd
+
+  #satis:
+  #  build: ./satis
+  #  ports:
+  #      - "80:80"
+  #  image: yonh/satis
+  #  restart: always
+

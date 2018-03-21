@@ -1,0 +1,6 @@
+bind: 0.0.0.0:80
+dbpath: /opt/satis-go/data
+repouipath: /opt/satis-go/public
+adminuipath: /opt/satis-go/admin-ui
+reponame: My Satis-go
+repohost: http://0.0.0.0:80
